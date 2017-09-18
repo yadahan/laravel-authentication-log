@@ -25,7 +25,7 @@ class AuthenticationLog extends Model
      *
      * @var array
      */
-     protected $guarded = ['authenticatable_id', 'authenticatable_type'];
+    protected $guarded = ['authenticatable_id', 'authenticatable_type'];
 
     /**
      * The attributes that should be cast to native types.

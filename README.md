@@ -1,5 +1,11 @@
 # Laravel Authentication Log
 
+[![Build Status](https://travis-ci.org/yadahan/laravel-authentication-log.svg?branch=master)](https://travis-ci.org/yadahan/laravel-authentication-log)
+[![StyleCI](https://styleci.io/repos/103927645/shield?branch=master&style=flat)](https://styleci.io/repos/103927645)
+[![Total Downloads](https://poser.pugx.org/yadahan/laravel-authentication-log/downloads?format=flat)](https://packagist.org/packages/yadahan/laravel-authentication-log)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://raw.githubusercontent.com/yadahan/laravel-authentication-log/master/LICENSE)
+
+
 ## Installation
 
 > Laravel Authentication Log requires Laravel 5.5 or higher, and PHP 7.0+.

@@ -3,7 +3,6 @@
 namespace Yadahan\AuthenticationLog\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Support\Carbon;
 use Illuminate\Notifications\Notification;
 use Yadahan\AuthenticationLog\AuthenticationLog;
 use Illuminate\Notifications\Messages\MailMessage;
