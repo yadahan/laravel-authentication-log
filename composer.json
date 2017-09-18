@@ -1,0 +1,62 @@
+{
+    "name": "yadahan/laravel-authentication-log",
+    "description": "Laravel Authentication Log provides authentication logger and notification for Laravel.",
+    "keywords": [
+        "laravel",
+        "authentication",
+        "log",
+        "notification"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yaakov Dahan",
+            "email": "yakidehan@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "illuminate/auth": "~5.5",
+        "illuminate/bus": "~5.5",
+        "illuminate/console": "~5.5",
+        "illuminate/contracts": "~5.5",
+        "illuminate/database": "~5.5",
+        "illuminate/http": "~5.5",
+        "illuminate/notifications": "~5.5",
+        "illuminate/support": "~5.5"
+    },
+    "require-dev": {
+        "orchestra/database": "~3.5",
+        "orchestra/testbench": "~3.5",
+        "phpunit/phpunit": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yadahan\\AuthenticationLog\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Yadahan\\AuthenticationLog\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Yadahan\\AuthenticationLog\\AuthenticationLogServiceProvider"
+            ]
+        }
+    },
+    "suggest": {
+        "guzzlehttp/guzzle": "Required to use the Slack transport (~6.0)",
+        "nexmo/client": "Required to use the Nexmo transport (~1.0)."
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}
