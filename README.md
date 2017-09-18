@@ -2,9 +2,9 @@
 
 [![Build Status](https://travis-ci.org/yadahan/laravel-authentication-log.svg?branch=master)](https://travis-ci.org/yadahan/laravel-authentication-log)
 [![StyleCI](https://styleci.io/repos/103927645/shield?branch=master&style=flat)](https://styleci.io/repos/103927645)
+[![Quality Score](https://img.shields.io/scrutinizer/g/yadahan/laravel-authentication-log.svg?style=flat)](https://scrutinizer-ci.com/g/yadahan/laravel-authentication-log)
 [![Total Downloads](https://poser.pugx.org/yadahan/laravel-authentication-log/downloads?format=flat)](https://packagist.org/packages/yadahan/laravel-authentication-log)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://raw.githubusercontent.com/yadahan/laravel-authentication-log/master/LICENSE)
-
 
 ## Installation
 
