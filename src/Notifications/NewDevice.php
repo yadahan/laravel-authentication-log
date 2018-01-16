@@ -51,8 +51,8 @@ class NewDevice extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject('Login from a new device')
-            ->markdown('vendor.authentication-log.emails.new', [
+            ->subject(trans('authentication-log::messages.subject'))
+            ->markdown('authentication-log::emails.new', [
                 'account' => $notifiable,
                 'time' => $this->authenticationLog->login_at,
                 'ipAddress' => $this->authenticationLog->ip_address,
@@ -71,7 +71,7 @@ class NewDevice extends Notification
         return (new SlackMessage)
             ->from(config('app.name'))
             ->warning()
-            ->content('Your '.config('app.name').' account logged in from a new device.')
+            ->content(trans('authentication-log::messages.content', ['app' => config('app.name')]))
             ->attachment(function ($attachment) use ($notifiable) {
                 $attachment->fields([
                     'Account' => $notifiable->email,
@@ -91,6 +91,6 @@ class NewDevice extends Notification
     public function toNexmo($notifiable)
     {
         return (new NexmoMessage)
-            ->content('Your '.config('app.name').' account logged in from a new device.');
+            ->content(trans('authentication-log::messages.content', ['app' => config('app.name')]));
     }
 }
