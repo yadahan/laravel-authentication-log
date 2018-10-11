@@ -53,10 +53,12 @@ User::find(1)->lastLoginAt();
 User::find(1)->lastLoginIp();
 ```
 
-Get the user previous login time (ignoring the current login):
+Get the user previous login time & ip address (ignoring the current login):
 
 ```php
 auth()->user()->previousLoginAt();
+
+auth()->user()->previousLoginIp();
 ```
 
 ### Notify login from a new device
