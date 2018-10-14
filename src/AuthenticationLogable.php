@@ -45,4 +45,12 @@ trait AuthenticationLogable
     {
         return optional($this->authentications()->skip(1)->first())->login_at;
     }
+
+    /**
+     * Get the entity's previous login ip.
+     */
+    public function previousLoginIp()
+    {
+        return optional($this->authentications()->skip(1)->first())->ip_address;
+    }
 }
