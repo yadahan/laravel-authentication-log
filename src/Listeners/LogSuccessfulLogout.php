@@ -52,4 +52,5 @@ class LogSuccessfulLogout
 
             $user->authentications()->save($authenticationLog);
         }
+    }
 }
