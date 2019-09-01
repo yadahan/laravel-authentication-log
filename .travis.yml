@@ -1,9 +1,11 @@
 language: php
 
+sudo: false
+
 php:
   - 7.0
   - 7.1
-
-sudo: false
+  - 7.2
+  - 7.3
 
 install: travis_retry composer install --no-interaction --prefer-source
