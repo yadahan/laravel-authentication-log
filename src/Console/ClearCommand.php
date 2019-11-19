@@ -2,8 +2,8 @@
 
 namespace serwin35\AuthenticationLog\Console;
 
-use Illuminate\Support\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Carbon;
 use serwin35\AuthenticationLog\AuthenticationLog;
 
 class ClearCommand extends Command

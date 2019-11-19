@@ -3,11 +3,11 @@
 namespace serwin35\AuthenticationLog\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Notifications\Notification;
-use serwin35\AuthenticationLog\AuthenticationLog;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\NexmoMessage;
 use Illuminate\Notifications\Messages\SlackMessage;
+use Illuminate\Notifications\Notification;
+use serwin35\AuthenticationLog\AuthenticationLog;
 
 class NewDevice extends Notification
 {

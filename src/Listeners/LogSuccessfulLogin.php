@@ -2,9 +2,9 @@
 
 namespace serwin35\AuthenticationLog\Listeners;
 
+use Illuminate\Auth\Events\Login;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use Illuminate\Auth\Events\Login;
 use serwin35\AuthenticationLog\AuthenticationLog;
 use serwin35\AuthenticationLog\Notifications\NewDevice;
 
