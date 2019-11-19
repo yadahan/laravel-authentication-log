@@ -85,6 +85,11 @@ Of course you can disable notification by set the `notify` option in your `confi
 'notify' => env('AUTHENTICATION_LOG_NOTIFY', false),
 ```
 
+Change name table in config.
+```php
+'table_name' => 'users_auth_log',
+```
+
 ### Clear old logs
 
 You may clear the old authentication log records using the `authentication-log:clear` Artisan command:
