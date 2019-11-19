@@ -1,10 +1,10 @@
 # Laravel Authentication Log
 
-[![Build Status](https://travis-ci.org/yadahan/laravel-authentication-log.svg?branch=master)](https://travis-ci.org/yadahan/laravel-authentication-log)
+[![Build Status](https://travis-ci.org/serwin35/laravel-authentication-log.svg?branch=master)](https://travis-ci.org/serwin35/laravel-authentication-log)
 [![StyleCI](https://styleci.io/repos/103927645/shield?branch=master&style=flat)](https://styleci.io/repos/103927645)
-[![Quality Score](https://img.shields.io/scrutinizer/g/yadahan/laravel-authentication-log.svg?style=flat)](https://scrutinizer-ci.com/g/yadahan/laravel-authentication-log)
-[![Total Downloads](https://poser.pugx.org/yadahan/laravel-authentication-log/downloads?format=flat)](https://packagist.org/packages/yadahan/laravel-authentication-log)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://raw.githubusercontent.com/yadahan/laravel-authentication-log/master/LICENSE)
+[![Quality Score](https://img.shields.io/scrutinizer/g/serwin35/laravel-authentication-log.svg?style=flat)](https://scrutinizer-ci.com/g/serwin35/laravel-authentication-log)
+[![Total Downloads](https://poser.pugx.org/serwin35/laravel-authentication-log/downloads?format=flat)](https://packagist.org/packages/serwin35/laravel-authentication-log)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://raw.githubusercontent.com/serwin35/laravel-authentication-log/master/LICENSE)
 
 ## Installation
 
@@ -12,13 +12,13 @@
 
 You may use Composer to install Laravel Authentication Log into your Laravel project:
 
-    composer require yadahan/laravel-authentication-log
+    composer require serwin35/laravel-authentication-log
 
 ### Configuration
 
 After installing the Laravel Authentication Log, publish its config, migration and view, using the `vendor:publish` Artisan command:
 
-    php artisan vendor:publish --provider="Yadahan\AuthenticationLog\AuthenticationLogServiceProvider"
+    php artisan vendor:publish --provider="serwin35\AuthenticationLog\AuthenticationLogServiceProvider"
 
 Next, you need to migrate your database. The Laravel Authentication Log migration will create the table your application needs to store authentication logs:
 
@@ -28,7 +28,7 @@ Finally, add the `AuthenticationLogable` and `Notifiable` traits to your authent
 
 ```php
 use Illuminate\Notifications\Notifiable;
-use Yadahan\AuthenticationLog\AuthenticationLogable;
+use serwin35\AuthenticationLog\AuthenticationLogable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable

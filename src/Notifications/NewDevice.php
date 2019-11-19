@@ -1,10 +1,10 @@
 <?php
 
-namespace Yadahan\AuthenticationLog\Notifications;
+namespace serwin35\AuthenticationLog\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
-use Yadahan\AuthenticationLog\AuthenticationLog;
+use serwin35\AuthenticationLog\AuthenticationLog;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\NexmoMessage;
 use Illuminate\Notifications\Messages\SlackMessage;
@@ -16,14 +16,14 @@ class NewDevice extends Notification
     /**
      * The authentication log.
      *
-     * @var \Yadahan\AuthenticationLog\AuthenticationLog
+     * @var \serwin35\AuthenticationLog\AuthenticationLog
      */
     public $authenticationLog;
 
     /**
      * Create a new notification instance.
      *
-     * @param  \Yadahan\AuthenticationLog\AuthenticationLog  $authenticationLog
+     * @param  \serwin35\AuthenticationLog\AuthenticationLog  $authenticationLog
      * @return void
      */
     public function __construct(AuthenticationLog $authenticationLog)

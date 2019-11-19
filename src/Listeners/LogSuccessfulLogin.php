@@ -1,12 +1,12 @@
 <?php
 
-namespace Yadahan\AuthenticationLog\Listeners;
+namespace serwin35\AuthenticationLog\Listeners;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Auth\Events\Login;
-use Yadahan\AuthenticationLog\AuthenticationLog;
-use Yadahan\AuthenticationLog\Notifications\NewDevice;
+use serwin35\AuthenticationLog\AuthenticationLog;
+use serwin35\AuthenticationLog\Notifications\NewDevice;
 
 class LogSuccessfulLogin
 {

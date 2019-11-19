@@ -1,6 +1,6 @@
 <?php
 
-namespace Yadahan\AuthenticationLog;
+namespace serwin35\AuthenticationLog;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,7 +11,7 @@ class AuthenticationLog extends Model
      *
      * @var string
      */
-    protected $table = 'authentication_log';
+    protected $table = config('authentication-log.table_name');
 
     /**
      * Indicates if the model should be timestamped.
@@ -25,7 +25,7 @@ class AuthenticationLog extends Model
      *
      * @var array
      */
-    protected $guarded = ['authenticatable_id', 'authenticatable_type'];
+    protected $guarded = ['auth_id', 'auth_type'];
 
     /**
      * The attributes that should be cast to native types.

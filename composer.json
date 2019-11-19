@@ -1,5 +1,5 @@
 {
-    "name": "yadahan/laravel-authentication-log",
+    "name": "serwin35/laravel-authentication-log",
     "description": "Laravel Authentication Log provides authentication logger and notification for Laravel.",
     "keywords": [
         "laravel",
@@ -9,6 +9,10 @@
     ],
     "license": "MIT",
     "authors": [
+        {
+            "name": "serwin35",
+            "email": "mateusz.serwinowski@gmail.com"
+        },
         {
             "name": "Yaakov Dahan",
             "email": "yakidehan@gmail.com"
@@ -31,12 +35,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Yadahan\\AuthenticationLog\\": "src/"
+            "serwin35\\AuthenticationLog\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Yadahan\\AuthenticationLog\\Tests\\": "tests/"
+            "serwin35\\AuthenticationLog\\Tests\\": "tests/"
         }
     },
     "extra": {
@@ -45,7 +49,7 @@
         },
         "laravel": {
             "providers": [
-                "Yadahan\\AuthenticationLog\\AuthenticationLogServiceProvider"
+                "serwin35\\AuthenticationLog\\AuthenticationLogServiceProvider"
             ]
         }
     },

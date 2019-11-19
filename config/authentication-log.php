@@ -25,4 +25,10 @@ return [
 
     'older' => 365,
 
+    /*
+     * This is the name of the table that will be created by the migration and
+     * used by the model shipped with this package.
+     */
+    'table_name' => 'users_auth_log',
+
 ];

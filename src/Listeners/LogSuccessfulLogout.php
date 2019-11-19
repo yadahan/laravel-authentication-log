@@ -1,11 +1,11 @@
 <?php
 
-namespace Yadahan\AuthenticationLog\Listeners;
+namespace serwin35\AuthenticationLog\Listeners;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Auth\Events\Logout;
-use Yadahan\AuthenticationLog\AuthenticationLog;
+use serwin35\AuthenticationLog\AuthenticationLog;
 
 class LogSuccessfulLogout
 {
