@@ -11,7 +11,11 @@ class AuthenticationLog extends Model
      *
      * @var string
      */
-    protected $table = config('authentication-log.table_name');
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->table = config('authentication-log.table_name');
+    }
 
     /**
      * Indicates if the model should be timestamped.
