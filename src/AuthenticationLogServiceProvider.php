@@ -2,8 +2,8 @@
 
 namespace serwin35\AuthenticationLog;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Events\Dispatcher;
+use Illuminate\Support\ServiceProvider;
 
 class AuthenticationLogServiceProvider extends ServiceProvider
 {

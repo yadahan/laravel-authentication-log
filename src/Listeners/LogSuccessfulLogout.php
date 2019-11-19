@@ -2,9 +2,9 @@
 
 namespace serwin35\AuthenticationLog\Listeners;
 
+use Illuminate\Auth\Events\Logout;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use Illuminate\Auth\Events\Logout;
 use serwin35\AuthenticationLog\AuthenticationLog;
 
 class LogSuccessfulLogout
