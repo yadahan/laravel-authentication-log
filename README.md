@@ -1,7 +1,7 @@
 # Laravel Authentication Log
 
 [![Build Status](https://travis-ci.org/serwin35/laravel-authentication-log.svg?branch=master)](https://travis-ci.org/serwin35/laravel-authentication-log)
-[![StyleCI](https://styleci.io/repos/103927645/shield?branch=master&style=flat)](https://styleci.io/repos/103927645)
+[![StyleCI](https://styleci.io/repos/222792637/shield?branch=master&style=flat)](https://styleci.io/repos/222792637)
 [![Quality Score](https://img.shields.io/scrutinizer/g/serwin35/laravel-authentication-log.svg?style=flat)](https://scrutinizer-ci.com/g/serwin35/laravel-authentication-log)
 [![Total Downloads](https://poser.pugx.org/serwin35/laravel-authentication-log/downloads?format=flat)](https://packagist.org/packages/serwin35/laravel-authentication-log)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://raw.githubusercontent.com/serwin35/laravel-authentication-log/master/LICENSE)
