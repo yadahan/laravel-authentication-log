@@ -40,6 +40,7 @@ class LogSuccessfulLogin
         $ip = $this->request->ip();
         $userAgent = $this->request->userAgent();
         $known = $user->authentications()->whereIpAddress($ip)->whereUserAgent($userAgent)->first();
+        $first_login = $user->authentications()->first(); // returns null if its a first time login
 
         $authenticationLog = new AuthenticationLog([
             'ip_address' => $ip,
@@ -49,7 +50,7 @@ class LogSuccessfulLogin
 
         $user->authentications()->save($authenticationLog);
 
-        if (! $known && config('authentication-log.notify')) {
+        if (! $known && config('authentication-log.notify') && $first_login != null) {
             $user->notify(new NewDevice($authenticationLog));
         }
     }
