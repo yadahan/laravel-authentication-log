@@ -2,9 +2,9 @@
 
 namespace Yadahan\AuthenticationLog\Listeners;
 
+use Illuminate\Auth\Events\Logout;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use Illuminate\Auth\Events\Logout;
 use Yadahan\AuthenticationLog\AuthenticationLog;
 
 class LogSuccessfulLogout
