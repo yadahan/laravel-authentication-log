@@ -3,13 +3,14 @@
 namespace Yadahan\AuthenticationLog\Notifications;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
 use Yadahan\AuthenticationLog\AuthenticationLog;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\NexmoMessage;
 use Illuminate\Notifications\Messages\SlackMessage;
 
-class NewDevice extends Notification
+class NewDevice extends Notification implements ShouldQueue
 {
     use Queueable;
 
