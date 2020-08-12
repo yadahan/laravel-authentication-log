@@ -2,8 +2,8 @@
 
 namespace Yadahan\AuthenticationLog\Console;
 
-use Illuminate\Support\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Carbon;
 use Yadahan\AuthenticationLog\AuthenticationLog;
 
 class ClearCommand extends Command
