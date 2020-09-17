@@ -49,7 +49,7 @@ class LogSuccessfulLogin
 
         $user->authentications()->save($authenticationLog);
 
-        if (! $known && config('authentication-log.notify')) {
+        if (! $known && config('authentication-log.notify') && auth()->user()->notificationLogin ) {
             $user->notify(new NewDevice($authenticationLog));
         }
     }
