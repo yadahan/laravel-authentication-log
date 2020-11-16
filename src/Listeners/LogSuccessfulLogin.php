@@ -2,9 +2,9 @@
 
 namespace Yadahan\AuthenticationLog\Listeners;
 
+use Illuminate\Auth\Events\Login;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use Illuminate\Auth\Events\Login;
 use Yadahan\AuthenticationLog\AuthenticationLog;
 use Yadahan\AuthenticationLog\Notifications\NewDevice;
 
