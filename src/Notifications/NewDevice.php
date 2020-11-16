@@ -8,8 +8,8 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\NexmoMessage;
 use Illuminate\Notifications\Messages\SlackMessage;
 use Illuminate\Notifications\Notification;
-use Yadahan\AuthenticationLog\AuthenticationLog;
 use Jenssegers\Agent\Agent;
+use Yadahan\AuthenticationLog\AuthenticationLog;
 
 class NewDevice extends Notification implements ShouldQueue
 {
@@ -24,7 +24,7 @@ class NewDevice extends Notification implements ShouldQueue
 
     /**
      * Jenssegers agent.
-     * 
+     *
      * @var \Jenssegers\Agent\Agent
      */
     public $agent;
