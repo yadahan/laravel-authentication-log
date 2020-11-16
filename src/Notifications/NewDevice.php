@@ -9,6 +9,7 @@ use Illuminate\Notifications\Messages\NexmoMessage;
 use Illuminate\Notifications\Messages\SlackMessage;
 use Illuminate\Notifications\Notification;
 use Yadahan\AuthenticationLog\AuthenticationLog;
+use Jenssegers\Agent\Agent;
 
 class NewDevice extends Notification implements ShouldQueue
 {
@@ -22,6 +23,13 @@ class NewDevice extends Notification implements ShouldQueue
     public $authenticationLog;
 
     /**
+     * Jenssegers agent.
+     * 
+     * @var \Jenssegers\Agent\Agent
+     */
+    public $agent;
+
+    /**
      * Create a new notification instance.
      *
      * @param  \Yadahan\AuthenticationLog\AuthenticationLog  $authenticationLog
@@ -30,6 +38,8 @@ class NewDevice extends Notification implements ShouldQueue
     public function __construct(AuthenticationLog $authenticationLog)
     {
         $this->authenticationLog = $authenticationLog;
+        $this->agent = new Agent();
+        $this->agent->setUserAgent($authenticationLog->user_agent);
     }
 
     /**
@@ -57,7 +67,10 @@ class NewDevice extends Notification implements ShouldQueue
                 'account' => $notifiable,
                 'time' => $this->authenticationLog->login_at,
                 'ipAddress' => $this->authenticationLog->ip_address,
-                'browser' => $this->authenticationLog->user_agent,
+                'browser' => $this->agent->browser(),
+                'browserVersion' => $this->agent->version($this->agent->browser()),
+                'platform' => $this->agent->platform(),
+                'platformVersion' => $this->agent->version($this->agent->platform()),
             ]);
     }
 
@@ -78,7 +91,8 @@ class NewDevice extends Notification implements ShouldQueue
                     'Account' => $notifiable->email,
                     'Time' => $this->authenticationLog->login_at->toCookieString(),
                     'IP Address' => $this->authenticationLog->ip_address,
-                    'Browser' => $this->authenticationLog->user_agent,
+                    'Browser' => $this->agent->browser(),
+                    'Platform' => $this->agent->platform(),
                 ]);
             });
     }
