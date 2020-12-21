@@ -40,7 +40,7 @@ class LogSuccessfulLogin
         $ip = $this->request->ip();
         $userAgent = $this->request->userAgent();
         $known = $user->authentications()->whereIpAddress($ip)->whereUserAgent($userAgent)->first();
-        $first_login = $user->authentications()->first(); // returns null if its a first time login
+        $newUser = $user->created_at->diffInMinutes(Carbon::now()) < 1;
 
         $authenticationLog = new AuthenticationLog([
             'ip_address' => $ip,
@@ -50,7 +50,7 @@ class LogSuccessfulLogin
 
         $user->authentications()->save($authenticationLog);
 
-        if (! $known && config('authentication-log.notify') && $first_login != null) {
+        if (! $known && ! $newUser && config('authentication-log.notify')) {
             $user->notify(new NewDevice($authenticationLog));
         }
     }
