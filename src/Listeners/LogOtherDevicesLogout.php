@@ -41,7 +41,7 @@ class LogOtherDevicesLogout
             $currentUserAgent = $this->request->userAgent();
             $currentAuthLog = $currentUser->authentications()->whereIpAddress($currentUserIp)->whereUserAgent($currentUserAgent)->first();
 
-            if (!$currentAuthLog) {
+            if (! $currentAuthLog) {
                 $currentAuthLog = new AuthenticationLog([
                     'ip_address' => $currentUserIp,
                     'user_agent' => $currentUserAgent,
