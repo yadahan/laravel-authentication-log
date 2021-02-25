@@ -45,7 +45,6 @@ class AuthenticationLog extends Model
         return $this->morphTo();
     }
 
-
     /**
      * Get the table associated with the model.
      *

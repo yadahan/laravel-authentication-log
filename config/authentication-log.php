@@ -35,5 +35,5 @@ return [
     |
     */
 
-    'table_name' => 'authentication_log'
+    'table_name' => 'authentication_log',
 ];
