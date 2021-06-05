@@ -97,6 +97,18 @@ Records that is older than the number of days specified in the `older` option in
 'older' => 365,
 ```
 
+## Previewing Mail Notifications
+In routes file, add following code to preview your Mail template.
+
+```php
+Route::get('/notification', function () {
+    $log = \Yadahan\AuthenticationLog\AuthenticationLog::first();
+    $user = $log->authenticatable;
+    return (new \Yadahan\AuthenticationLog\Notifications\NewDevice($log))
+        ->toMail($user);
+});
+```
+
 ## Contributing
 
 Thank you for considering contributing to the Laravel Authentication Log.
