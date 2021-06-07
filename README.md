@@ -6,8 +6,14 @@
 [![Total Downloads](https://poser.pugx.org/yadahan/laravel-authentication-log/downloads?format=flat)](https://packagist.org/packages/yadahan/laravel-authentication-log)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://raw.githubusercontent.com/yadahan/laravel-authentication-log/master/LICENSE)
 
-## 
-Inspired by [yadahan/laravel-authentication-log](https://github.com/yadahan/laravel-authentication-log). To make package simple and clean, remove unnecessary record logout function, Slack notification, NexmoMessage notification. Add translatable email function, and add Chinese translation. Translation of more languages is welcome to push.
+## Introduction
+Inspired by [yadahan/laravel-authentication-log](https://github.com/yadahan/laravel-authentication-log).
+
+To make package simple and clean, remove unnecessary record logout function, Slack notification, NexmoMessage notification.
+
+Add translatable email function, and add Chinese translation. Translation of more languages is welcome to push.
+
+Add some other code improvements.
 
 ## Installation
 
