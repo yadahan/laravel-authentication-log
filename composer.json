@@ -1,5 +1,5 @@
 {
-    "name": "yadahan/laravel-authentication-log",
+    "name": "keyshang/laravel-authentication-log",
     "description": "Laravel Authentication Log provides authentication logger and notification for Laravel.",
     "keywords": [
         "laravel",
@@ -10,12 +10,12 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Yaakov Dahan",
-            "email": "yakidehan@gmail.com"
+            "name": "Key Shang",
+            "email": "arthur2sereno@gmail.com"
         }
     ],
     "require": {
-        "php": ">=7.4.0",
+        "php": ">=7.2",
         "laravel/framework": "^8.0"
     },
     "require-dev": {
@@ -33,18 +33,11 @@
         }
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "1.0-dev"
-        },
         "laravel": {
             "providers": [
                 "Yadahan\\AuthenticationLog\\AuthenticationLogServiceProvider"
             ]
         }
-    },
-    "suggest": {
-        "guzzlehttp/guzzle": "Required to use the Slack transport (~6.0)",
-        "nexmo/client": "Required to use the Nexmo transport (~1.0)."
     },
     "config": {
         "sort-packages": true
