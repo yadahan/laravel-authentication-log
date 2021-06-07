@@ -1,8 +1,8 @@
 # Laravel Authentication Log
 
 [![Build Status](https://travis-ci.com/KeyShang/laravel-authentication-log.svg?branch=master)](https://travis-ci.com/KeyShang/laravel-authentication-log)
-[![StyleCI](https://github.styleci.io/repos/369752648/shield?branch=master)](https://github.styleci.io/repos/shield)
-[![Quality Score](https://img.shields.io/scrutinizer/g/yadahan/laravel-authentication-log.svg?style=flat)](https://scrutinizer-ci.com/g/yadahan/laravel-authentication-log)
+[![StyleCI](https://github.styleci.io/repos/369752648/shield?style=flat&branch=master)](https://github.styleci.io/repos/369752648)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/KeyShang/laravel-authentication-log/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/KeyShang/laravel-authentication-log/?branch=master)
 [![Total Downloads](https://poser.pugx.org/KeyShang/laravel-authentication-log/downloads?format=flat)](https://packagist.org/packages/KeyShang/laravel-authentication-log)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://raw.githubusercontent.com/KeyShang/laravel-authentication-log/master/LICENSE)
 
