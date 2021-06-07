@@ -24,18 +24,21 @@
     },
     "autoload": {
         "psr-4": {
-            "Yadahan\\AuthenticationLog\\": "src/"
+            "KeyShang\\AuthenticationLog\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Yadahan\\AuthenticationLog\\Tests\\": "tests/"
+            "KeyShang\\AuthenticationLog\\Tests\\": "tests/"
         }
     },
     "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        },
         "laravel": {
             "providers": [
-                "Yadahan\\AuthenticationLog\\AuthenticationLogServiceProvider"
+                "KeyShang\\AuthenticationLog\\AuthenticationLogServiceProvider"
             ]
         }
     },

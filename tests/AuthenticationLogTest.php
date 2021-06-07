@@ -1,6 +1,6 @@
 <?php
 
-namespace Yadahan\AuthenticationLog\Tests;
+namespace KeyShang\AuthenticationLog\Tests;
 
 use Orchestra\Testbench\TestCase;
 

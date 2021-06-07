@@ -27,7 +27,7 @@ You may use Composer to install Laravel Authentication Log into your Laravel pro
 
 After installing the Laravel Authentication Log, publish its config, migration and view, using the `vendor:publish` Artisan command:
 
-    php artisan vendor:publish --provider="Yadahan\AuthenticationLog\AuthenticationLogServiceProvider"
+    php artisan vendor:publish --provider="KeyShang\AuthenticationLog\AuthenticationLogServiceProvider"
 
 Next, you need to migrate your database. The Laravel Authentication Log migration will create the table your application needs to store authentication logs:
 
@@ -37,7 +37,7 @@ Finally, add the `AuthenticationLogable` and `Notifiable` traits to your authent
 
 ```php
 use Illuminate\Notifications\Notifiable;
-use Yadahan\AuthenticationLog\AuthenticationLogable;
+use KeyShang\AuthenticationLog\AuthenticationLogable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -111,9 +111,9 @@ In routes file, add following code to preview your Mail template.
 
 ```php
 Route::get('/notification', function () {
-    $log = \Yadahan\AuthenticationLog\AuthenticationLog::first();
+    $log = \KeyShang\AuthenticationLog\AuthenticationLog::first();
     $user = $log->authenticatable;
-    return (new \Yadahan\AuthenticationLog\Notifications\NewDevice($log))
+    return (new \KeyShang\AuthenticationLog\Notifications\NewDevice($log))
         ->toMail($user);
 });
 ```

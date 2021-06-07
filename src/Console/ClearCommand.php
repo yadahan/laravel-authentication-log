@@ -1,10 +1,10 @@
 <?php
 
-namespace Yadahan\AuthenticationLog\Console;
+namespace KeyShang\AuthenticationLog\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
-use Yadahan\AuthenticationLog\AuthenticationLog;
+use KeyShang\AuthenticationLog\AuthenticationLog;
 
 class ClearCommand extends Command
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Yadahan\AuthenticationLog\Notifications;
+namespace KeyShang\AuthenticationLog\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Carbon;
-use Yadahan\AuthenticationLog\AuthenticationLog;
+use KeyShang\AuthenticationLog\AuthenticationLog;
 
 class NewDevice extends Notification implements ShouldQueue
 {

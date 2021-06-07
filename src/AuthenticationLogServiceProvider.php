@@ -1,6 +1,6 @@
 <?php
 
-namespace Yadahan\AuthenticationLog;
+namespace KeyShang\AuthenticationLog;
 
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Support\ServiceProvider;
