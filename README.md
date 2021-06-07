@@ -6,9 +6,12 @@
 [![Total Downloads](https://poser.pugx.org/yadahan/laravel-authentication-log/downloads?format=flat)](https://packagist.org/packages/yadahan/laravel-authentication-log)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://raw.githubusercontent.com/yadahan/laravel-authentication-log/master/LICENSE)
 
+## 
+Inspired by [yadahan/laravel-authentication-log](https://github.com/yadahan/laravel-authentication-log). To make package simple and clean, remove unnecessary record logout function, Slack notification, NexmoMessage notification. Add translatable email function, and add Chinese translation. Translation of more languages is welcome to push.
+
 ## Installation
 
-> Laravel Authentication Log requires Laravel 5.5 or higher, and PHP 7.0+.
+> The package requires Laravel 8.x or higher, and PHP 7.4+.
 
 You may use Composer to install Laravel Authentication Log into your Laravel project:
 

@@ -13,7 +13,10 @@ return [
     |
     */
 
-    'subject' => 'Login from a new device',
-    'content' => 'Your :app account logged in from a new device.',
-
+    'subject' => 'Your :app account logged in from a new device',
+    'account' => 'Account',
+    'login_at' => 'Login At',
+    'ip_address' => 'IP Address',
+    'browser' => 'Browser',
+    'content' => 'If this was you, you can ignore this alert. If you suspect any suspicious activity on your account, please change your password.',
 ];
