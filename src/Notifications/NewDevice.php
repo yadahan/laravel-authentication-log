@@ -49,14 +49,14 @@ class NewDevice extends Notification implements ShouldQueue
         /** @var Carbon $loginAt */
         $loginAt = $this->authenticationLog->login_at;
         $loginAt = $loginAt->setTimezone('UTC');
+
         return (new MailMessage)
             ->subject(trans('authentication-log::new_device.subject', ['app' => config('app.name')]))
             ->markdown('authentication-log::emails.new_device', [
                 'account' => $notifiable,
-                'loginAt' => $loginAt . ' UTC',
+                'loginAt' => $loginAt.' UTC',
                 'ipAddress' => $this->authenticationLog->ip_address,
                 'browser' => $this->authenticationLog->user_agent,
-            ])
-            ;
+            ]);
     }
 }
