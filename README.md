@@ -72,23 +72,9 @@ auth()->user()->previousLoginIp();
 
 ### Notify login from a new device
 
-Notifications may be sent on the `mail`, `nexmo`, and `slack` channels. By default notify via email.
+By default notify via email.
 
-You may define `notifyAuthenticationLogVia` method to determine which channels the notification should be delivered on:
-
-```php
-/**
- * The Authentication Log notifications delivery channels.
- *
- * @return array
- */
-public function notifyAuthenticationLogVia()
-{
-    return ['nexmo', 'mail', 'slack'];
-}
-```
-
-Of course you can disable notification by set the `notify` option in your `config/authentication-log.php` configuration file to `false`:
+You can disable notification by set the `notify` option in your `config/authentication-log.php` configuration file to `false`:
 
 ```php
 'notify' => env('AUTHENTICATION_LOG_NOTIFY', false),
