@@ -2,22 +2,24 @@
 
 namespace KeyShang\AuthenticationLog;
 
+use Illuminate\Database\Eloquent\Concerns\HasRelationships;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+
 trait AuthenticationLogable
 {
     /**
      * Get the entity's authentications.
      */
-    public function authentications()
+    public function authentications() : MorphMany
     {
+        /** @var HasRelationships $this */
         return $this->morphMany(AuthenticationLog::class, 'authenticatable')->latest('login_at');
     }
 
     /**
      * The Authentication Log notifications delivery channels.
-     *
-     * @return array
      */
-    public function notifyAuthenticationLogVia()
+    public function notifyAuthenticationLogVia(): array
     {
         return ['mail'];
     }
