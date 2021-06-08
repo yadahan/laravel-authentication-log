@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.com/KeyShang/laravel-authentication-log.svg?branch=master)](https://travis-ci.com/KeyShang/laravel-authentication-log)
 [![StyleCI](https://github.styleci.io/repos/369752648/shield?style=flat&branch=master)](https://github.styleci.io/repos/369752648)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/KeyShang/laravel-authentication-log/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/KeyShang/laravel-authentication-log/?branch=master)
-[![Total Downloads](https://poser.pugx.org/KeyShang/laravel-authentication-log/downloads?format=flat)](https://packagist.org/packages/KeyShang/laravel-authentication-log)
+[![Total Downloads](https://poser.pugx.org/keyshang/laravel-authentication-log/downloads)](//packagist.org/packages/keyshang/laravel-authentication-log)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://raw.githubusercontent.com/KeyShang/laravel-authentication-log/master/LICENSE)
 
 ## Introduction
@@ -17,7 +17,7 @@ Add some other code improvements.
 
 ## Installation
 
-> The package requires Laravel 8.x or higher, and PHP 7.4+.
+> The package requires Laravel 8.x, and PHP 7.2+.
 
 You may use Composer to install Laravel Authentication Log into your Laravel project:
 
