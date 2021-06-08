@@ -2,6 +2,7 @@
 
 namespace KeyShang\AuthenticationLog\Notifications;
 
+use Exception;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -43,15 +44,20 @@ class NewDevice extends Notification implements ShouldQueue
      * Get the mail representation of the notification.
      *
      * @param  mixed  $notifiable
+     * @throws Exception
      */
     public function toMail($notifiable): MailMessage
     {
         /** @var Carbon $loginAt */
         $loginAt = $this->authenticationLog->login_at;
         $loginAt = $loginAt->setTimezone('UTC');
+        $subject = trans('authentication-log::new_device.subject', ['app' => config('app.name')]);
+        if (gettype($subject) !== 'string') {
+            throw new Exception('Translate subject error');
+        }
 
         return (new MailMessage)
-            ->subject(trans('authentication-log::new_device.subject', ['app' => config('app.name')]))
+            ->subject($subject)
             ->markdown('authentication-log::emails.new_device', [
                 'account' => $notifiable,
                 'loginAt' => $loginAt.' UTC',
