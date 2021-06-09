@@ -9,7 +9,7 @@ use Illuminate\Support\Carbon;
 use KeyShang\AuthenticationLog\AuthenticationLogable;
 
 /**
- * Class for phpdoc
+ * Class for phpdoc.
  *
  * @property string $email
  * @property Carbon $login_at
