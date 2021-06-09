@@ -10,7 +10,7 @@ trait AuthenticationLogable
     /**
      * Get the entity's authentications.
      */
-    public function authentications() : MorphMany
+    public function authentications(): MorphMany
     {
         /** @var HasRelationships $this */
         return $this->morphMany(AuthenticationLog::class, 'authenticatable')->latest('login_at');
