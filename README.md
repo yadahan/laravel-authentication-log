@@ -6,7 +6,14 @@
 [![Total Downloads](https://poser.pugx.org/keyshang/laravel-authentication-log/downloads)](//packagist.org/packages/keyshang/laravel-authentication-log)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://raw.githubusercontent.com/KeyShang/laravel-authentication-log/master/LICENSE)
 
-## Introduction
+## Function
+1. Record the user login and retrieve it
+2. Notification via email when user login from a new device
+3. The notification email can be translated by set locale. And already had English and Chinese translation.
+
+## Changelog
+
+### 1.5.0
 Inspired by [yadahan/laravel-authentication-log](https://github.com/yadahan/laravel-authentication-log).
 
 To make package simple and clean, remove unnecessary record logout function, Slack notification, NexmoMessage notification.
@@ -17,23 +24,17 @@ Add some other code improvements.
 
 ## Installation
 
-> The package requires Laravel 8.x, and PHP 7.2+.
+> Require: Laravel 8.x, and PHP 7.2+.
 
-You may use Composer to install Laravel Authentication Log into your Laravel project:
+1. Use Composer to install:
 
     composer require keyshang/laravel-authentication-log
 
-### Configuration
-
-After installing the Laravel Authentication Log, publish its config, migration and view, using the `vendor:publish` Artisan command:
-
-    php artisan vendor:publish --provider="KeyShang\AuthenticationLog\AuthenticationLogServiceProvider"
-
-Next, you need to migrate your database. The Laravel Authentication Log migration will create the table your application needs to store authentication logs:
+2. Migrate your database. The Laravel Authentication Log migration will create the table your application needs to store authentication logs:
 
     php artisan migrate
 
-Finally, add the `AuthenticationLogable` and `Notifiable` traits to your authenticatable model (by default, `App\User` model). These traits provides various methods to allow you to get common authentication log data, such as last login time, last login IP address, and set the channels to notify the user when login from a new device:
+3. Add the `AuthenticationLogable` and `Notifiable` traits to your authenticatable model (by default, `App\User` model). These traits provides various methods to allow you to get common authentication log data, such as last login time, last login IP address, and set the channels to notify the user when login from a new device:
 
 ```php
 use Illuminate\Notifications\Notifiable;
@@ -46,7 +47,38 @@ class User extends Authenticatable
 }
 ```
 
-### Basic Usage
+## Override default config
+Run the command below, and change the generated file in `config/authentication-log.php`.
+
+    php artisan vendor:publish --tag=authentication-log-config
+
+### Notify login from a new device
+
+By default email notification is enable.
+
+You can disable email notification by set the `notify` option in your `config/authentication-log.php` configuration file to `false`:
+
+    'notify' => env('AUTHENTICATION_LOG_NOTIFY', false),
+
+### Clear old logs
+
+You may clear the old authentication log records using the `authentication-log:clear` Artisan command:
+
+    php artisan authentication-log:clear
+
+Records that is older than the number of days specified in the `older` option in your `config/authentication-log.php` will be deleted:
+
+    'older' => 365,
+
+## Override default views
+
+    php artisan vendor:publish --tag=authentication-log-views
+
+## Override default translations
+
+    php artisan vendor:publish --tag=authentication-log-translations
+
+## Basic Usage
 
 Get all authentication logs for the user:
 
@@ -68,28 +100,6 @@ Get the user previous login time & ip address (ignoring the current login):
 auth()->user()->previousLoginAt();
 
 auth()->user()->previousLoginIp();
-```
-
-### Notify login from a new device
-
-By default notify via email.
-
-You can disable notification by set the `notify` option in your `config/authentication-log.php` configuration file to `false`:
-
-```php
-'notify' => env('AUTHENTICATION_LOG_NOTIFY', false),
-```
-
-### Clear old logs
-
-You may clear the old authentication log records using the `authentication-log:clear` Artisan command:
-
-    php artisan authentication-log:clear
-
-Records that is older than the number of days specified in the `older` option in your `config/authentication-log.php` will be deleted:
-
-```php
-'older' => 365,
 ```
 
 ## Previewing Mail Notifications
