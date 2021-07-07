@@ -21,7 +21,7 @@ Add some other code improvements.
 
 You may use Composer to install Laravel Authentication Log into your Laravel project:
 
-    composer require yadahan/laravel-authentication-log
+    composer require keyshang/laravel-authentication-log
 
 ### Configuration
 
