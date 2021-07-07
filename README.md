@@ -13,7 +13,7 @@
 
 ## Changelog
 
-### 1.5.0
+### 2.0.0
 Inspired by [yadahan/laravel-authentication-log](https://github.com/yadahan/laravel-authentication-log).
 
 To make package simple and clean, remove unnecessary record logout function, Slack notification, NexmoMessage notification.
