@@ -1,6 +1,6 @@
 <?php
 
-namespace Yadahan\AuthenticationLog;
+namespace KeyShang\AuthenticationLog;
 
 use Illuminate\Database\Eloquent\Model;
 

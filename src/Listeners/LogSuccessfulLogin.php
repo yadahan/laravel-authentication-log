@@ -1,12 +1,12 @@
 <?php
 
-namespace Yadahan\AuthenticationLog\Listeners;
+namespace KeyShang\AuthenticationLog\Listeners;
 
 use Illuminate\Auth\Events\Login;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use Yadahan\AuthenticationLog\AuthenticationLog;
-use Yadahan\AuthenticationLog\Notifications\NewDevice;
+use KeyShang\AuthenticationLog\AuthenticationLog;
+use KeyShang\AuthenticationLog\Notifications\NewDevice;
 
 class LogSuccessfulLogin
 {
@@ -37,6 +37,7 @@ class LogSuccessfulLogin
     public function handle(Login $event)
     {
         $user = $event->user;
+        /** @var \KeyShang\AuthenticationLog\Phpdoc\User $user */
         $ip = $this->request->ip();
         $userAgent = $this->request->userAgent();
         $known = $user->authentications()->whereIpAddress($ip)->whereUserAgent($userAgent)->first();

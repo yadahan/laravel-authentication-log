@@ -1,14 +1,14 @@
 <?php
 
-namespace Yadahan\AuthenticationLog\Notifications;
+namespace KeyShang\AuthenticationLog\Notifications;
 
+use Exception;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Notifications\Messages\NexmoMessage;
-use Illuminate\Notifications\Messages\SlackMessage;
 use Illuminate\Notifications\Notification;
-use Yadahan\AuthenticationLog\AuthenticationLog;
+use Illuminate\Support\Carbon;
+use KeyShang\AuthenticationLog\AuthenticationLog;
 
 class NewDevice extends Notification implements ShouldQueue
 {
@@ -16,15 +16,13 @@ class NewDevice extends Notification implements ShouldQueue
 
     /**
      * The authentication log.
-     *
-     * @var \Yadahan\AuthenticationLog\AuthenticationLog
      */
-    public $authenticationLog;
+    public AuthenticationLog $authenticationLog;
 
     /**
      * Create a new notification instance.
      *
-     * @param  \Yadahan\AuthenticationLog\AuthenticationLog  $authenticationLog
+     * @param AuthenticationLog $authenticationLog
      * @return void
      */
     public function __construct(AuthenticationLog $authenticationLog)
@@ -36,9 +34,8 @@ class NewDevice extends Notification implements ShouldQueue
      * Get the notification's delivery channels.
      *
      * @param  mixed  $notifiable
-     * @return array
      */
-    public function via($notifiable)
+    public function via($notifiable): array
     {
         return $notifiable->notifyAuthenticationLogVia();
     }
@@ -47,51 +44,25 @@ class NewDevice extends Notification implements ShouldQueue
      * Get the mail representation of the notification.
      *
      * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
+     * @throws Exception
      */
-    public function toMail($notifiable)
+    public function toMail($notifiable): MailMessage
     {
+        /** @var Carbon $loginAt */
+        $loginAt = $this->authenticationLog->login_at;
+        $loginAt = $loginAt->setTimezone('UTC');
+        $subject = trans('authentication-log::new_device.subject', ['app' => config('app.name')]);
+        if (gettype($subject) !== 'string') {
+            throw new Exception('Translate subject error');
+        }
+
         return (new MailMessage)
-            ->subject(trans('authentication-log::messages.subject'))
-            ->markdown('authentication-log::emails.new', [
+            ->subject($subject)
+            ->markdown('authentication-log::emails.new_device', [
                 'account' => $notifiable,
-                'time' => $this->authenticationLog->login_at,
+                'loginAt' => $loginAt.' UTC',
                 'ipAddress' => $this->authenticationLog->ip_address,
                 'browser' => $this->authenticationLog->user_agent,
             ]);
-    }
-
-    /**
-     * Get the Slack representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\SlackMessage
-     */
-    public function toSlack($notifiable)
-    {
-        return (new SlackMessage)
-            ->from(config('app.name'))
-            ->warning()
-            ->content(trans('authentication-log::messages.content', ['app' => config('app.name')]))
-            ->attachment(function ($attachment) use ($notifiable) {
-                $attachment->fields([
-                    'Account' => $notifiable->email,
-                    'Time' => $this->authenticationLog->login_at->toCookieString(),
-                    'IP Address' => $this->authenticationLog->ip_address,
-                    'Browser' => $this->authenticationLog->user_agent,
-                ]);
-            });
-    }
-
-    /**
-     * Get the Nexmo / SMS representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\NexmoMessage
-     */
-    public function toNexmo($notifiable)
-    {
-        return (new NexmoMessage)
-            ->content(trans('authentication-log::messages.content', ['app' => config('app.name')]));
     }
 }

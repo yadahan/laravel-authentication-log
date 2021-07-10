@@ -1,6 +1,6 @@
 <?php
 
-namespace Yadahan\AuthenticationLog;
+namespace KeyShang\AuthenticationLog;
 
 trait EventMap
 {
@@ -11,11 +11,7 @@ trait EventMap
      */
     protected $events = [
         'Illuminate\Auth\Events\Login' => [
-            'Yadahan\AuthenticationLog\Listeners\LogSuccessfulLogin',
-        ],
-
-        'Illuminate\Auth\Events\Logout' => [
-            'Yadahan\AuthenticationLog\Listeners\LogSuccessfulLogout',
+            'KeyShang\AuthenticationLog\Listeners\LogSuccessfulLogin',
         ],
     ];
 }
