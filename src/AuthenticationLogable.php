@@ -31,6 +31,22 @@ trait AuthenticationLogable
     }
 
     /**
+     * Get the entity's last logout at.
+     */
+    public function lastLogoutAt()
+    {
+        return optional($this->authentications()->first())->logout_at;
+    }
+    
+     /**
+     * Get the entity's current online status
+     */
+    public function isOnline()
+    {
+        return optional($this->lastLogoutAt()) === null;
+    }
+    
+    /**
      * Get the entity's last login ip address.
      */
     public function lastLoginIp()
