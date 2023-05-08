@@ -2,7 +2,7 @@
 
 namespace Yadahan\AuthenticationLog\Listeners;
 
-use Illuminate\Auth\Events\Logout;
+use Illuminate\Auth\Events\OtherDeviceLogout;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Yadahan\AuthenticationLog\AuthenticationLog;
@@ -33,7 +33,7 @@ class LogSuccessfulOtherDeviceLogout
      * @param  Logout  $event
      * @return void
      */
-    public function handle(Logout $event)
+    public function handle(OtherDeviceLogout $event)
     {
         if ($event->user) {
             $user = $event->user;
