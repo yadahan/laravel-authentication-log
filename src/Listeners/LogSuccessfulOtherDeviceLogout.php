@@ -37,20 +37,12 @@ class LogSuccessfulOtherDeviceLogout
     {
         if ($event->user) {
             $user = $event->user;
-            $ip = $this->request->ip();
-            $userAgent = $this->request->userAgent();
-            $authenticationLog = $user->authentications()->whereIpAddress($ip)->whereUserAgent($userAgent)->first();
 
-            if (! $authenticationLog) {
-                $authenticationLog = new AuthenticationLog([
-                    'ip_address' => $ip,
-                    'user_agent' => $userAgent,
-                ]);
-            }
+            $authenticationLog = $user->authentications()->whereNull('logout_at')->get()->skip(1);
 
-            $authenticationLog->logout_at = Carbon::now();
-
-            $user->authentications()->save($authenticationLog);
+            $user->authentications()->whereIn('id', $authenticationLog->pluck('id'))->update([
+                'logout_at' => Carbon::now(),
+            ]);
         }
     }
 }
