@@ -19,7 +19,7 @@ trait EventMap
         ],
         
         'Illuminate\Auth\Events\OtherDeviceLogout' => [
-            'Yadahan\AuthenticationLog\Listeners\LogSuccessfulLogout',
+            'Yadahan\AuthenticationLog\Listeners\LogSuccessfulOtherDeviceLogout',
         ],
     ];
 }
