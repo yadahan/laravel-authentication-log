@@ -34,7 +34,7 @@ class AuthenticationLogServiceProvider extends ServiceProvider
             ], 'authentication-log-views');
 
             $this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/authentication-log'),
+                __DIR__.'/../resources/lang' => $this->app->langPath('vendor/authentication-log'),
             ], 'authentication-log-translations');
 
             $this->publishes([
