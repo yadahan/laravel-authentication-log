@@ -37,12 +37,13 @@ class LogSuccessfulOtherDeviceLogout
     {
         if ($event->user) {
             $user = $event->user;
-
-            $authenticationLog = $user->authentications()->whereNull('logout_at')->get()->skip(1);
-
-            $user->authentications()->whereIn('id', $authenticationLog->pluck('id'))->update([
-                'logout_at' => Carbon::now(),
-            ]);
+            if(method_exists($user, 'authentications')){
+                $authenticationLog = $user->authentications()->whereNull('logout_at')->get()->skip(1);
+    
+                $user->authentications()->whereIn('id', $authenticationLog->pluck('id'))->update([
+                    'logout_at' => Carbon::now(),
+                ]);
+            }
         }
     }
 }
