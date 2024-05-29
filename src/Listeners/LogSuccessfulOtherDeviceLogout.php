@@ -2,12 +2,12 @@
 
 namespace Yadahan\AuthenticationLog\Listeners;
 
-use Illuminate\Auth\Events\Logout;
+use Illuminate\Auth\Events\OtherDeviceLogout;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Yadahan\AuthenticationLog\AuthenticationLog;
 
-class LogSuccessfulLogout
+class LogSuccessfulOtherDeviceLogout
 {
     /**
      * The request.
@@ -33,25 +33,16 @@ class LogSuccessfulLogout
      * @param  Logout  $event
      * @return void
      */
-    public function handle(Logout $event)
+    public function handle(OtherDeviceLogout $event)
     {
         if ($event->user) {
             $user = $event->user;
             if(method_exists($user, 'authentications')){
-                $ip = $this->request->ip();
-                $userAgent = $this->request->userAgent();
-                $authenticationLog = $user->authentications()->whereIpAddress($ip)->whereUserAgent($userAgent)->first();
+                $authenticationLog = $user->authentications()->whereNull('logout_at')->get()->skip(1);
     
-                if (! $authenticationLog) {
-                    $authenticationLog = new AuthenticationLog([
-                        'ip_address' => $ip,
-                        'user_agent' => $userAgent,
-                    ]);
-                }
-    
-                $authenticationLog->logout_at = Carbon::now();
-    
-                $user->authentications()->save($authenticationLog);
+                $user->authentications()->whereIn('id', $authenticationLog->pluck('id'))->update([
+                    'logout_at' => Carbon::now(),
+                ]);
             }
         }
     }
