@@ -37,21 +37,23 @@ class LogSuccessfulLogin
     public function handle(Login $event)
     {
         $user = $event->user;
-        $ip = $this->request->ip();
-        $userAgent = $this->request->userAgent();
-        $known = $user->authentications()->whereIpAddress($ip)->whereUserAgent($userAgent)->first();
-        $newUser = Carbon::parse($user->{$user->getCreatedAtColumn()})->diffInMinutes(Carbon::now()) < 1;
-
-        $authenticationLog = new AuthenticationLog([
-            'ip_address' => $ip,
-            'user_agent' => $userAgent,
-            'login_at' => Carbon::now(),
-        ]);
-
-        $user->authentications()->save($authenticationLog);
-
-        if (! $known && ! $newUser && config('authentication-log.notify')) {
-            $user->notify(new NewDevice($authenticationLog));
+        if(method_exists($user, 'authentications')){
+            $ip = $this->request->ip();
+            $userAgent = $this->request->userAgent();
+            $known = $user->authentications()->whereIpAddress($ip)->whereUserAgent($userAgent)->first();
+            $newUser = Carbon::parse($user->{$user->getCreatedAtColumn()})->diffInMinutes(Carbon::now()) < 1;
+    
+            $authenticationLog = new AuthenticationLog([
+                'ip_address' => $ip,
+                'user_agent' => $userAgent,
+                'login_at' => Carbon::now(),
+            ]);
+    
+            $user->authentications()->save($authenticationLog);
+    
+            if (! $known && ! $newUser && config('authentication-log.notify')) {
+                $user->notify(new NewDevice($authenticationLog));
+            }
         }
     }
 }
