@@ -25,4 +25,15 @@ return [
 
     'older' => 365,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Set AuthenticationLog table name
+    |--------------------------------------------------------------------------
+    |
+    | When using the AuthenticationLog model, we need to known wich tabel should
+    | be used to store the logs.
+    |
+    */
+
+    'table_name' => 'authentication_log',
 ];
