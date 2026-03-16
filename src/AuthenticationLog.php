@@ -44,4 +44,14 @@ class AuthenticationLog extends Model
     {
         return $this->morphTo();
     }
+
+    /**
+     * Get the table associated with the model.
+     *
+     * @return string
+     */
+    public function getTable()
+    {
+        return config('authentication-log.table_name', parent::getTable());
+    }
 }
